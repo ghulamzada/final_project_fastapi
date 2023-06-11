@@ -51,7 +51,7 @@ def process_data(
         y = np.array([])
 
     X_categorical = X[categorical_features].values
-    X_continuous = X.drop(*[categorical_features], axis=1)
+    X_continuous = X.drop(categorical_features, axis=1)
 
     if training is True:
         encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
@@ -59,6 +59,8 @@ def process_data(
         X_categorical = encoder.fit_transform(X_categorical)
         y = lb.fit_transform(y.values).ravel()
     else:
+        if encoder is None or lb is None:
+            raise ValueError("Encoder and LabelBinarizer must be provided in training=False mode.")
         X_categorical = encoder.transform(X_categorical)
         try:
             y = lb.transform(y.values).ravel()

@@ -1,4 +1,5 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.tree import DecisionTreeClassifier
 
 
 # Optional: implement hyperparameter tuning.
@@ -18,7 +19,10 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
 
-    pass
+    # Building Decision Tree model 
+    trained_model_clf = DecisionTreeClassifier(random_state=42)
+    trained_model_clf = trained_model_clf.fit(X_train, y_train)
+    return trained_model_clf
 
 
 def compute_model_metrics(y, preds):
@@ -57,4 +61,6 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    y_pred = model.predict(X)
+    return y_pred
+
