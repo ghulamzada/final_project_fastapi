@@ -1,5 +1,6 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.tree import DecisionTreeClassifier
+from joblib import dump
 
 
 # Optional: implement hyperparameter tuning.
@@ -64,3 +65,5 @@ def inference(model, X):
     y_pred = model.predict(X)
     return y_pred
 
+def save_trained_model(trained_model_clf, path_to_save: str):
+    dump(trained_model_clf, path_to_save)
