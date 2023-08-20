@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
+import joblib
 
 
 def process_data(
@@ -58,6 +59,10 @@ def process_data(
         lb = LabelBinarizer()
         X_categorical = encoder.fit_transform(X_categorical)
         y = lb.fit_transform(y.values).ravel()
+
+        joblib.dump(encoder, "model/encoder.pkl")
+        joblib.dump(lb, "model/label_binarizer.pkl")
+
     else:
         if encoder is None or lb is None:
             raise ValueError("Encoder and LabelBinarizer must be provided in training=False mode.")

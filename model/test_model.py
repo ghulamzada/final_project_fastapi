@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from modeling import train_model, compute_model_metrics, inference
+from model import train_model, compute_model_metrics, inference
 from sklearn.model_selection import train_test_split
 from data import process_data
 

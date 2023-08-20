@@ -1,1 +1,6 @@
 .conda
+.vscode
+.idea
+.gitignore
+.pytest_cache
+.draft_file_tobe_deltetd.ipynb
