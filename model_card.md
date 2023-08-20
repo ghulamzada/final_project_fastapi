@@ -1,7 +1,7 @@
 # Model Card
 
-For additional information see the Model Card paper: https://arxiv.org/pdf/1810.03993.pdf
-
+Project link on GitHub:
+https://github.com/ghulamzada/final_project_fastapi.git
 
 ## Model Details
 Model developed by: Taj Mohammad Ghulam Zada
