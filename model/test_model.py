@@ -47,7 +47,7 @@ def test_train_model(data):
     # Testing compute_model_metrics from model code
     fbeta, precision, recall = compute_model_metrics(y_test, y_pred)
 
-    threshold = 0.85 # 0.5 is too inconsistant for the following metrics (causes CI/CD to fail), therefore I commented it out.
+    threshold = 0.85 # 0.5 is too inconsistant for the following metrics (causes CI/CD to fail), therefore changed to 0.85
     assert precision < threshold
     assert recall <= threshold
     assert fbeta <= threshold
