@@ -6,7 +6,7 @@ Working in a command line environment is recommended for ease of use with git an
     * conda create -n [envname] "python=3.8" scikit-learn pandas numpy pytest jupyter jupyterlab fastapi uvicorn -c conda-forge
     * Install git either through conda (“conda install git”) or through your CLI, e.g. sudo apt-get git.
 
-## Repositories
+# Repositories
 * Create a directory for the project and initialize git.
     * As you work on the code, continually commit changes. Trained models you want to use in production must be committed to GitHub.
 * Connect your local git repo to GitHub.
@@ -34,8 +34,15 @@ Working in a command line environment is recommended for ease of use with git an
    	 * Hint: the data has names with hyphens and Python does not allow those as variable names. Do not modify the column names in the csv and instead use the functionality of FastAPI/Pydantic/etc to deal with this.
 * Write 3 unit tests to test the API (one for the GET and two for POST, one that tests each prediction).
 
-# API Deployment
-* Create a free Heroku account (for the next steps you can either use the web GUI or download the Heroku CLI).
+# Run Sanity Check for the Test Cases:
+* Run python sanitycheck.py. This script is located inside the starter directory in the starter code.
+* The script will scan the test cases written for the GET() and POST() APIs and generate a report.
+* The report will list any problems it detects with your test cases. Fix the problems and run the sanitycheck.py script again.
+* The script uses heuristics to detect common problems and can sometimes overlook a problem or raise a false alarm. You should still check your implementation against the project rubric to be absolutely sure your submission will meet the requirements.
+
+# API Deployment to a Cloud Application Platform
+* Create a Cloud Application Platform account, such as Heroku or Render. For the following steps, you can either use the web GUI or download the CLI.
+* Note: starting Nov 28, 2022, Heroku has announced the removal of the free-tier account, which will be replaced by a low-cost subscription plan. (ref: Removal of Heroku Free Product Plans FAQ)
 * Create a new app and have it deployed from your GitHub repository.
     * Enable automatic deployments that only deploy if your continuous integration passes.
     * Hint: think about how paths will differ in your local environment vs. on Heroku.
