@@ -22,11 +22,17 @@ The evaulation data set is around 20% of all dataset
 _Please include the metrics used and your model's performance on those metrics._
 Following metrics were used:\
 **- fbeta** \
-**- precision** \
+The value for fbeta is around 0.5, but it differs eachtime as the model is retrained.
+\
+\
+**- precision**\
+The value for precesion is slightly around 0.5 but it differs eachtime as the model is retrained. Ofcourse it can optimized and improved.
+\
 **- recall** 
+The value for recal is also around 0.5 but it can also vary depending on each model retrain.
 
 On data slices, however, the accuracy of scikit-learn package was used.
 ## Ethical Considerations
-
+Usage of this model can have its ehtical aspects, however as this model is intended only for education purposes and not for commercial, therefore, the usage of this model for any education departments won't harm anyone and can be used without any problems. For commercial usages, this must be reviewd and in some cases needs to be optimzed - specially for data protection purposes.
 ## Caveats and Recommendations
 This model can be improved using a ML-Model optimization i.e. Optuna to get the optimal accurcy, but as mentioned above, due to time-shortage I could not apply it just yet.

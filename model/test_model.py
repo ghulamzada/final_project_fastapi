@@ -64,7 +64,7 @@ def test_y_prediction(data):
     assert len(y_pred) is not None
 
 
-def test_precision(data):
+def test_precision_metrics(data):
     X_train, y_train, cat_features, train, test, encoder, lb = data
     training = train_model(X_train=X_train, y_train=y_train)
 

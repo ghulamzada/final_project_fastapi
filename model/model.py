@@ -76,7 +76,8 @@ def save_trained_model(trained_model_clf, path_to_save: str):
     """
     dump(trained_model_clf, path_to_save)
 
-def calculate_data_slice_performance(train_model, inference, data, slice_features):
+def calculate_data_slice_performance(train_model, inference, data, slice_features, output_file="slice_output.txt"):
+
     """
     Calculates the performance of a model on slices of categorical features.
 
@@ -132,7 +133,10 @@ def calculate_data_slice_performance(train_model, inference, data, slice_feature
             slice_performance[feature][value] = performance
 
     # Print the performance for each slice combination
-    for feature, performance_dict in slice_performance.items():
-        print(f"Performance for slices of '{feature}':")
-        for value, performance in performance_dict.items():
-            print(f" - Slice value '{value}': {performance}")
+    with open(output_file, 'w') as f:
+        for feature, performance_dict in slice_performance.items():
+            f.write(f"Performance for slices of '{feature}':\n")
+            print(f"Performance for slices of '{feature}':")
+            for value, performance in performance_dict.items():
+                f.write(f" - Slice value '{value}': {performance}\n")
+                print(f" - Slice value '{value}': {performance}")
