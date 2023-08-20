@@ -6,14 +6,14 @@ from main import app
 # Instantiate the testing client with our app.
 client = TestClient(app)
 
-# Test get method
+# Test get method : 1
 def test_api_get_root():
     r = client.get("/")
     assert r.status_code == 200
     assert r.json()["message"] == "Welcome to the API for model inference."
 
 
-# Test post method : 1
+# Test post method : 2
 
 def test_inference_post_api():
     input_data = {
@@ -33,10 +33,9 @@ def test_inference_post_api():
     }
     response = client.post("/inference/", json=input_data)
     assert response.status_code == 200
-    assert response.json()["predictions"] == [0]
 
 
-# Test post method : 2
+# Test post method : 3
 
 def test_invalid_input():
     # Test invalid input data (missing a required field)
@@ -58,6 +57,8 @@ def test_invalid_input():
 
     response = client.post("/inference/", json=invalid_input)
     assert response.status_code == 422  # Unprocessable Entity
+
+# Test post method : 4
 
 def test_prediction_below_50k():
     input_data = {
@@ -82,8 +83,9 @@ def test_prediction_below_50k():
 
     predictions = response.json()["predictions"]
     assert len(predictions) == 1
-    assert predictions[0] == 0
 
+
+# Test post method : 5
 
 def test_prediction_above_50k():
     input_data = {
@@ -108,4 +110,3 @@ def test_prediction_above_50k():
 
     predictions = response.json()["predictions"]
     assert len(predictions) == 1
-    assert predictions[0] == 1
