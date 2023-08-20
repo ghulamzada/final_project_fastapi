@@ -6,7 +6,7 @@ from data import process_data
 
 @pytest.fixture(scope="session")
 def data():
-    data = pd.read_csv("testdataset_unittest.csv")
+    data = pd.read_csv("./model/testdataset_unittest.csv")
     # Droping duplicate rows
     data.drop_duplicates(inplace=True)
     # Removing 2 unneeded columns
