@@ -1,7 +1,7 @@
 import requests
 
 # Define the API endpoint URL
-api_url = "https://final-project-fastapi.onrender.com/inference/"  # Replace with the actual URL
+api_url = "https://final-project-fastapi.onrender.com/inference/"
 
 # Sample input data
 input_data = {
@@ -27,6 +27,6 @@ response = requests.post(api_url, json=input_data)
 if response.status_code == 200:
     data = response.json()
     predictions = data["predictions"]
-    print("Predictions:", predictions)
+    print("Model-Predictions:", predictions)
 else:
     print("Error:", response.status_code, response.text)
